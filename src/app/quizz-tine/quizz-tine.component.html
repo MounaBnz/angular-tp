@@ -2,6 +2,7 @@
 <div class="container mt-5">
   <div class="card shadow">
     <div class="card-body text-center">
+      <img src="./../../assets/images/quizz.png" alt="Palestine Icon" class="icon"> <!-- Add this line -->
       <h2 class="card-title">Palestine Quiz</h2>
 
       <div *ngIf="currentQuestionIndex < questions.length; else quizCompleted">
@@ -9,18 +10,20 @@
           <h4 class="question">{{ currentQuestion.question }}</h4>
 
           <div class="form-check mt-3" *ngFor="let option of currentQuestion.options">
-            <input
-              class="form-check-input"
-              type="radio"
-              name="answerOptions"
-              id="{{ option }}"
-              [(ngModel)]="selectedAnswer"
-              [value]="option"
-              required
-            />
-            <label class="form-check-label" for="{{ option }}">
-              {{ option }}
-            </label>
+            <div class="form-check-inline">
+              <input
+                class="form-check-input"
+                type="radio"
+                name="answerOptions"
+                id="{{ option }}"
+                [(ngModel)]="selectedAnswer"
+                [value]="option"
+                required
+              />
+              <label class="form-check-label" for="{{ option }}">
+                {{ option }}
+              </label>
+            </div>
           </div>
 
           <button class="btn btn-primary mt-3" (click)="submitAnswer()" [disabled]="!selectedAnswer">Next</button>
@@ -29,8 +32,10 @@
 
       <ng-template #quizCompleted>
         <div class="text-center mt-5">
-          <h3>Quiz Completed!</h3>
+          <h3>Congratulations!</h3>
           <p>Your Score: {{ score }}/{{ questions.length }}</p>
+          <i class="fas fa-medal fa-3x text-sucess"></i>
+          <p class="mt-3">You've completed the quiz. Well done!</p>
         </div>
       </ng-template>
     </div>
