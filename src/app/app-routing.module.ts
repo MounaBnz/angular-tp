@@ -17,6 +17,7 @@ import { AuthGuard } from './auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { PalestineMapComponent } from './palestine-map/palestine-map.component';
+import { QuizzTineComponent } from './quizz-tine/quizz-tine.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'Color', component: ColorComponent},
   { path: 'logout', component: LogoutComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'quizz-tine', component: QuizzTineComponent },
 
   { path: 'card', component: CardComponent},
   { path: 'palestine-map', component: PalestineMapComponent},

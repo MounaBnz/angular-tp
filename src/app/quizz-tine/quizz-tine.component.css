@@ -1,0 +1,23 @@
+/* quizz-tine.component.css */
+.card {
+  border-radius: 15px;
+  padding: 20px;
+}
+
+.question-container {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Add more styles based on your preferences */

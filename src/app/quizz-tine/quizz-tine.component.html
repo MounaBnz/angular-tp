@@ -1,1 +1,37 @@
-<p>quizz-tine works!</p>
+<!-- quizz-tine.component.html -->
+<div class="container mt-5">
+  <div class="card shadow">
+    <div class="card-body text-center">
+      <h2 class="card-title">Palestine Quiz</h2>
+
+      <div *ngIf="currentQuestionIndex < questions.length; else quizCompleted">
+        <div class="question-container mt-3">
+          <h4 class="question">{{ currentQuestion.question }}</h4>
+
+          <div class="form-check mt-3" *ngFor="let option of currentQuestion.options">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="answerOptions"
+              id="{{ option }}"
+              [(ngModel)]="selectedAnswer"
+              [value]="option"
+            />
+            <label class="form-check-label" for="{{ option }}">
+              {{ option }}
+            </label>
+          </div>
+
+          <button class="btn btn-primary mt-3" (click)="submitAnswer()">Next</button>
+        </div>
+      </div>
+
+      <ng-template #quizCompleted>
+        <div class="text-center mt-5">
+          <h3>Quiz Completed!</h3>
+          <p>Your Score: {{ score }}/{{ questions.length }}</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
