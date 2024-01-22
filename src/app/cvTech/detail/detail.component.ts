@@ -26,19 +26,19 @@ export class DetailComponent implements OnInit {
     )
   }
 
-  delete() {
-    try {
-      // Call the service to delete the person locally
-      this.cvService.deletePersonneById(this.personne.id);
+  // delete() {
+  //   try {
+  //     // Call the service to delete the person locally
+  //     this.cvService.deletePersonneById(this.personne.id);
 
-      // Redirect to the CVComponent
-      this.router.navigate(['cv']);
-    } catch (error) {
-      this.toastr.error("Problème de suppression, veuillez contacter l'admin");
-      console.log(error)
+  //     // Redirect to the CVComponent
+  //     this.router.navigate(['cv']);
+  //   } catch (error) {
+  //     this.toastr.error("Problème de suppression, veuillez contacter l'admin");
+  //     console.log(error)
 
-    }
-  }
+  //   }
+  // }
 }
 
 

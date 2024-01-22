@@ -20,7 +20,7 @@ export class EmbaucheService {
     const index = this.personnes.indexOf(personne);
     if (index < 0) {
       this.personnes.push(personne);
-      this.toastr.success(`${personne.name} a été embauché.`, 'Embauche réussie', {
+      this.toastr.success(`${personne.name} a été séléctionné.`, 'Selection réussie', {
         timeOut: 3000,
         progressBar: true,
         progressAnimation: 'increasing',
@@ -30,7 +30,7 @@ export class EmbaucheService {
         positionClass: 'toast-top-right', // Center toast on the screen
       });
     } else {
-      this.toastr.warning(`${personne.name} est déjà sélectionné.`, 'Cv déjà sélectionné', {
+      this.toastr.warning(`${personne.name} est déjà sélectionné.`, 'Sélection déjà sélectionné', {
         timeOut: 3000,
         progressBar: true,
         progressAnimation: 'increasing',
