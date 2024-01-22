@@ -1,16 +1,16 @@
 <div class="container mt-4" *ngIf="personne">
   <div class="row justify-content-center">
-    <div class="col-lg-8">
+    <div class="col-lg-4">
       <div class="card shadow-lg">
-        <div class="card-header bg-info text-white text-center">
-          <h4 class="m-0">CV: {{ personne.firstname }} {{ personne.name }}</h4>
+        <div class="card-header bg-danger text-white text-center">
+          <h4 class="m-0">Team Member: {{ personne.firstname }} {{ personne.name }}</h4>
         </div>
         <div class="card-body">
           <div class="text-center">
             <img
               width="150px"
               height="150px"
-              class="rounded-circle border border-3 border-info"
+              class="rounded-circle border border-3 border-success"
               src="assets/images/{{ personne.path | defaultImage }}"
               alt="{{ personne.firstname }} {{ personne.name }}"
             />
