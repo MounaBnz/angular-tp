@@ -58,3 +58,27 @@
 textarea {
   resize: vertical;
 }
+
+
+/* Add this to your component's CSS or global styles */
+.star-rating {
+  font-size: 1.5rem;
+  color: #ffc107; /* Set the star color */
+}
+
+.star {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.fa-star {
+  color: #ffc107; /* Set the filled star color */
+}
+
+.fa-star-o {
+  color: #ccc; /* Set the unfilled star color */
+}
+
+.locked .fa-star {
+  cursor: not-allowed;
+}

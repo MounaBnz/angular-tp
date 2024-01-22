@@ -19,15 +19,19 @@
       </div>
 
       <!-- Rating Section -->
-      <div class="mt-4">
-        <h4>Rating</h4>
-        <div class="d-flex align-items-center">
-          <span class="mr-2">Your Rating: {{ userRating }}/10</span>
-          <input type="range" [(ngModel)]="userRating" min="0" max="10" step="1">
-        </div>
-      </div>
+<div class="mt-4">
+  <h4>Rating</h4>
+  <div class="d-flex align-items-center">
+    <span class="mr-2">Your Rating:</span>
+    <div class="star-rating">
+      <span *ngFor="let i of [1, 2, 3, 4, 5]" class="star" (click)="setRating(i)" [class.locked]="i > userRating">
+        <i class="fas" [ngClass]="{'fa-star': i <= userRating, 'fa-star-o': i > userRating}"></i>
+      </span>
     </div>
   </div>
+</div>
+
+
 
   <!-- Comment Section -->
   <div class="mt-4 card shadow">

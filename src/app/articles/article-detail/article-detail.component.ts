@@ -9,15 +9,14 @@ import { ArticleService } from '../article.service';
 })
 export class ArticleDetailComponent implements OnInit {
   article: any;
-  userRating: number = 5; // Declare the property here
   newComment: string = '';
   comments: string[] = []; // Array to store comments
+  userRating: number = 5;
 
   constructor(
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private router: Router
-
   ) {}
 
   ngOnInit(): void {
@@ -85,5 +84,8 @@ export class ArticleDetailComponent implements OnInit {
       this.comments.push(this.newComment.trim());
       this.newComment = ''; // Clear the input after adding the comment
     }
+  }
+  setRating(rating: number): void {
+    this.userRating = rating;
   }
 }
