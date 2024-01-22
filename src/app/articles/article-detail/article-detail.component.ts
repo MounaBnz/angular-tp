@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ArticleService } from '../article.service';
 
-
 @Component({
   selector: 'app-article-detail',
   templateUrl: './article-detail.component.html',
@@ -15,14 +14,22 @@ export class ArticleDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private articleService: ArticleService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const articleIdParam = this.route.snapshot.paramMap.get('id');
 
     if (articleIdParam) {
       const articleId = +articleIdParam;
-      this.article = this.articleService.fetchArticleData(articleId);
+      this.articleService.fetchArticleData(articleId).subscribe(
+        (data) => {
+          this.article = data;
+        },
+        (error) => {
+          console.error('Error fetching article data:', error);
+          // Handle the error or navigate to an error page
+        }
+      );
     } else {
       // Handle the null case
       this.router.navigate(['/error']);
