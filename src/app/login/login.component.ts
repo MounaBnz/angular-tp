@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service'; // Adjust the path as per your project structure
+import { AuthService } from '../auth/auth.service';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

@@ -13,7 +13,7 @@ import { ErrorComponent } from './error/error.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { ArticlesComponent } from './articles/articles.component';
 import { LogoutComponent } from './logout/logout.component';
-import { AuthGuard } from './auth.guard';
+import { AuthGuard } from './auth/auth.guard';
 import { RegisterComponent } from './register/register.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { PalestineMapComponent } from './palestine-map/palestine-map.component';
