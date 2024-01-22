@@ -47,7 +47,7 @@
 .description:before {
   content: open-quote; /* Adds an opening quotation mark */
   font-size: 4em;
-  color: #6d1313; /* Same color as the text for consistency */
+  color: #283618; /* Same color as the text for consistency */
   position: absolute; /* Position absolutely within the description */
   left: 50%;
   top: 0;
@@ -58,7 +58,7 @@
 .description:after {
   content: close-quote; /* Adds a closing quotation mark */
   font-size: 4em;
-  color: #6d1313;
+  color: #283618;
   position: absolute;
   right: 50%;
   bottom: 0;
