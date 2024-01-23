@@ -37,14 +37,7 @@ export class ArticleDetailComponent implements OnInit {
       // Handle the null case
       this.router.navigate(['/error']);
     }
-    if (this.article.likes === undefined) {
-      this.article.likes = 0;
-    }
-    if (this.article.dislikes === undefined) {
-      this.article.dislikes = 0;
-    }
   }
-
 
   incrementLikes(): void {
     this.article.likes++;
@@ -64,7 +57,7 @@ export class ArticleDetailComponent implements OnInit {
       this.article.likes--;
     }
     this.article.liked = !this.article.liked;
-    this.article.disliked = this.article.liked ? false : this.article.disliked;
+    this.article.disliked = false;
   }
 
   toggleDislike(): void {
@@ -77,8 +70,10 @@ export class ArticleDetailComponent implements OnInit {
       this.article.dislikes--;
     }
     this.article.disliked = !this.article.disliked;
-    this.article.liked = this.article.disliked ? false : this.article.liked;
+    this.article.liked = false;
   }
+
+
 
   updateUserRating(): void {
     // Update the user's rating
