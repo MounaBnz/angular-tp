@@ -105,3 +105,10 @@
 .btn-redirect:hover {
   background-color: #7d2f2f;
 }
+
+
+.icon-style {
+  color: whitesmoke;
+  font-size: 2rem; /* Adjust size as needed */
+  margin-bottom: 1rem;
+}

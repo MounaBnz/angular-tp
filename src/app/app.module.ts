@@ -39,6 +39,7 @@ import { ArticleDetailComponent } from './articles/article-detail/article-detail
 import { PalestineMapComponent } from './palestine-map/palestine-map.component';
 import { ContactComponent } from './contact/contact.component';
 import { QuizzTineComponent } from './quizz-tine/quizz-tine.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -66,6 +67,7 @@ import { QuizzTineComponent } from './quizz-tine/quizz-tine.component';
     PalestineMapComponent,
     ContactComponent,
     QuizzTineComponent,
+    DashboardComponent,
     //EmbaucheComponent,
   ],
   imports: [
