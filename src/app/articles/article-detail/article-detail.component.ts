@@ -12,6 +12,7 @@ export class ArticleDetailComponent implements OnInit {
   newComment: string = '';
   comments: string[] = []; // Array to store comments
   userRating: number = 5;
+  selectedRating: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -37,7 +38,14 @@ export class ArticleDetailComponent implements OnInit {
       // Handle the null case
       this.router.navigate(['/error']);
     }
+    if (this.article.likes === undefined) {
+      this.article.likes = 0;
+    }
+    if (this.article.dislikes === undefined) {
+      this.article.dislikes = 0;
+    }
   }
+
 
   incrementLikes(): void {
     this.article.likes++;
@@ -57,7 +65,7 @@ export class ArticleDetailComponent implements OnInit {
       this.article.likes--;
     }
     this.article.liked = !this.article.liked;
-    this.article.disliked = false;
+    this.article.disliked = this.article.liked ? false : this.article.disliked;
   }
 
   toggleDislike(): void {
@@ -70,15 +78,14 @@ export class ArticleDetailComponent implements OnInit {
       this.article.dislikes--;
     }
     this.article.disliked = !this.article.disliked;
-    this.article.liked = false;
+    this.article.liked = this.article.disliked ? false : this.article.liked;
   }
-
-
 
   updateUserRating(): void {
     // Update the user's rating
     this.article.userRating = this.userRating;
   }
+
 
   addComment(): void {
     if (this.newComment.trim() !== '') {
@@ -87,8 +94,12 @@ export class ArticleDetailComponent implements OnInit {
     }
   }
   setRating(rating: number): void {
-    this.userRating = rating;
-    // Additional code to handle the rating (e.g., send to server)
+    if (this.selectedRating === rating) {
+      // If the user clicks the same star again, reset the rating
+      this.selectedRating = 0;
+    } else {
+      // Update the selected rating
+      this.selectedRating = rating;
+    }
   }
-
 }
