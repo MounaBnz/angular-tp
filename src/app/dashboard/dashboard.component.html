@@ -1,1 +1,43 @@
-<p>dashboard works!</p>
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-2 bg-light d-none d-md-block sidebar">
+      <div class="sidebar-sticky">
+        <ul class="nav flex-column">
+          <li class="nav-item"><a class="nav-link active" href="/dashboard">Dashboard</a></li>
+
+          <li class="nav-item"><a class="nav-link" href="/articles">Articles</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Main content -->
+    <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+      <h1 class="h2">Dashboard</h1>
+
+      <!-- User Management Section -->
+      <section class="my-4">
+        <h2>User Management</h2>
+        <!-- User Management Content -->
+      </section>
+
+      <section class="my-4">
+        <h3>Article Interaction Analytics</h3>
+        <div *ngFor="let article of articles">
+          <h3>{{ article.title }}</h3>
+          <div class="progress-container">
+            <div class="progress-bar" [ngStyle]="{'width': getLikePercentage(article) + '%'}"></div>
+          </div>
+          <span>{{ getLikePercentage(article) }}% Likes</span>
+
+          <div class="progress-container">
+            <div class="progress-bar dislike" [ngStyle]="{'width': getDislikePercentage(article) + '%'}"></div>
+          </div>
+          <span>{{ getDislikePercentage(article) }}% Dislikes</span>
+        </div>
+      </section>
+
+
+    </main>
+  </div>
+</div>

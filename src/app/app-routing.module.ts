@@ -18,7 +18,7 @@ import { RegisterComponent } from './register/register.component';
 import { ArticleDetailComponent } from './articles/article-detail/article-detail.component';
 import { PalestineMapComponent } from './palestine-map/palestine-map.component';
 import { QuizzTineComponent } from './quizz-tine/quizz-tine.component';
-
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {path: 'cv', children:[
@@ -35,6 +35,7 @@ const routes: Routes = [
   { path: 'quizz-tine', component: QuizzTineComponent },
 
   { path: 'card', component: CardComponent},
+  { path: 'dashboard', component: DashboardComponent},
   { path: 'palestine-map', component: PalestineMapComponent},
   //{ path: 'PocAddStudents', component:  },
   { path: 'TaskManager', component: TaskManagerComponent },
