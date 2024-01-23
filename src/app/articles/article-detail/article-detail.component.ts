@@ -37,7 +37,14 @@ export class ArticleDetailComponent implements OnInit {
       // Handle the null case
       this.router.navigate(['/error']);
     }
+    if (this.article.likes === undefined) {
+      this.article.likes = 0;
+    }
+    if (this.article.dislikes === undefined) {
+      this.article.dislikes = 0;
+    }
   }
+
 
   incrementLikes(): void {
     this.article.likes++;
@@ -47,23 +54,30 @@ export class ArticleDetailComponent implements OnInit {
     this.article.dislikes++;
   }
 
-  toggleDislike(): void {
-    this.article.disliked = !this.article.disliked;
-
-    // If the user removes the dislike, reset the likes as well
-    if (!this.article.disliked) {
-      this.article.liked = false;
+  toggleLike(): void {
+    if (!this.article.liked) {
+      this.article.likes++;
+      if (this.article.disliked) {
+        this.article.dislikes--;
+      }
+    } else {
+      this.article.likes--;
     }
+    this.article.liked = !this.article.liked;
+    this.article.disliked = this.article.liked ? false : this.article.disliked;
   }
 
-
-  toggleLike(): void {
-    this.article.liked = !this.article.liked;
-
-    // If the user removes the dislike, reset the likes as well
-    if (!this.article.liked) {
-      this.article.liked = true;
+  toggleDislike(): void {
+    if (!this.article.disliked) {
+      this.article.dislikes++;
+      if (this.article.liked) {
+        this.article.likes--;
+      }
+    } else {
+      this.article.dislikes--;
     }
+    this.article.disliked = !this.article.disliked;
+    this.article.liked = this.article.disliked ? false : this.article.liked;
   }
 
   updateUserRating(): void {
@@ -79,5 +93,7 @@ export class ArticleDetailComponent implements OnInit {
   }
   setRating(rating: number): void {
     this.userRating = rating;
+    // Additional code to handle the rating (e.g., send to server)
   }
+
 }

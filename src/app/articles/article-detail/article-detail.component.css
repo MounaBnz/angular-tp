@@ -66,12 +66,12 @@ textarea {
   color: #ffc107; /* Set the star color */
 }
 
-.star {
+.star-rating .star{
   cursor: pointer;
   margin-right: 5px;
 }
 
-.fa-star {
+.star-rating .star {
   color: #ffc107; /* Set the filled star color */
 }
 
@@ -79,6 +79,6 @@ textarea {
   color: #ccc; /* Set the unfilled star color */
 }
 
-.locked .fa-star {
+.star-rating .star.locked {
   cursor: not-allowed;
 }
