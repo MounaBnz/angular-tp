@@ -39,15 +39,6 @@ export class ArticleDetailComponent implements OnInit {
     }
   }
 
-
-  // toggleLike(): void {
-  //   // Toggle the like status
-  //   this.article.liked = !this.article.liked;
-  //   // Update the likes count
-  //   this.article.likes += this.article.liked ? 1 : -1;
-  // }
-
-
   incrementLikes(): void {
     this.article.likes++;
   }
@@ -64,6 +55,7 @@ export class ArticleDetailComponent implements OnInit {
       this.article.liked = false;
     }
   }
+
 
   toggleLike(): void {
     this.article.liked = !this.article.liked;
