@@ -12,6 +12,18 @@ export class DashboardComponent {
     // ... more articles
   ];
 
+  searchText: string = '';
+  users = [
+    { id: 1, name: 'John Doe', email: 'john@example.com' },
+    { id: 2, name: 'Jane Doe', email: 'jane@example.com' },
+    // ... more users
+  ];
+
+  deleteUser(userId: number): void {
+    this.users = this.users.filter(user => user.id !== userId);
+    // Additionally, send a request to the server to delete the user
+  }
+
   getLikePercentage(article: { likes: number; dislikes: any; }): number {
     const total = article.likes + article.dislikes;
     return total ? Math.round((article.likes / total) * 100) : 0;

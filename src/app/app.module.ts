@@ -40,6 +40,7 @@ import { PalestineMapComponent } from './palestine-map/palestine-map.component';
 import { ContactComponent } from './contact/contact.component';
 import { QuizzTineComponent } from './quizz-tine/quizz-tine.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FilterPipe } from './pipes/filter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,6 +69,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     ContactComponent,
     QuizzTineComponent,
     DashboardComponent,
+    FilterPipe,
     //EmbaucheComponent,
   ],
   imports: [

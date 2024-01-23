@@ -5,7 +5,7 @@
   bottom: 0;
   left: 0;
   z-index: 100;
-  padding: 20px;
+  padding: 10px;
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
 }
 
@@ -38,7 +38,7 @@ canvas {
 
 .progress-bar {
   height: 20px;
-  background-color: #4caf50; /* Green for likes */
+  background-color: #0d440e; /* Green for likes */
   border-radius: 5px;
   transition: width 0.5s;
 }
