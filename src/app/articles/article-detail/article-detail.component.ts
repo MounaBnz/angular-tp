@@ -20,6 +20,9 @@ export class ArticleDetailComponent implements OnInit {
     private router: Router
   ) {}
 
+
+
+
   ngOnInit(): void {
     const articleIdParam = this.route.snapshot.paramMap.get('id');
 
@@ -101,5 +104,17 @@ export class ArticleDetailComponent implements OnInit {
       // Update the selected rating
       this.selectedRating = rating;
     }
+  }
+
+
+  modifyArticle() {
+    // Handle article modification logic
+    // You might want to navigate to a different component/page for modification
+    // or open a modal/dialog for modification form
+  }
+
+  deleteArticle() {
+    // Handle article deletion logic
+    // You might want to ask for confirmation or open a modal/dialog for confirmation
   }
 }

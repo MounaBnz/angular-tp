@@ -5,7 +5,7 @@ import { articles } from './../Model/articles-data';
   selector: 'app-articles',
   templateUrl: './articles.component.html',
   styleUrls: ['./articles.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush // Using OnPush for performance
+  changeDetection: ChangeDetectionStrategy.OnPush
 
 })
 export class ArticlesComponent implements OnInit {
@@ -18,38 +18,15 @@ export class ArticlesComponent implements OnInit {
     './../../assets/images/bg2.jpg',
     // ... other images
   ];
+  currentPage: number = 1;
+  itemsPerPage: number = 10;
+  pages: number[] = [];
+
 
   getImageForArticle(index: number): string {
     return this.staticImages[index % this.staticImages.length];
   }
 
-  // articles = [
-  //   {
-  //     id: 1, // make sure each article has a unique id
-  //     title: 'The Resilience of Hope',
-  //     content: 'Amidst the shadows of conflict, the spirit of perseverance emerges in the streets of Gaza.',
-  //     date: new Date('2024-01-20')
-  //   },
-  //   {
-  //     id: 2,
-  //     title: 'Echoes of Yesterday',
-  //     content: 'A reflection on the historical narratives that continue to shape the landscape of the West Bank.',
-  //     date: new Date('2024-01-22')
-  //   },
-  //   {
-  //     id: 3,
-  //     title: 'A Glimpse Beyond the Wall',
-  //     content: 'Exploring the day-to-day life and culture that thrives beyond the barriers.',
-  //     date: new Date('2024-01-25')
-  //   },
-  //   {
-  //     id: 4,
-  //     title: 'Voices from the Olive Groves',
-  //     content: 'In the heart of Palestine, amidst rolling hills and ancient olive groves, lies a story of resilience and heritage. This article delves into the lives of Palestinian farmers who have tended these groves for generations. Despite the challenges they face, their connection to the land remains unbreakable. We explore their daily routines, the significance of olive cultivation in their culture, and how these age-old practices have become a symbol of hope and perseverance in a landscape marked by conflict.',
-  //     date: new Date('2024-01-25')
-  //   },
-  //   // ...hedhom fake taw mba3ed ki norbtou bel back tet7assen
-  // ];
 
   constructor(private router: Router) { }
   articles = articles;  // Assign the imported articles array
@@ -64,5 +41,23 @@ export class ArticlesComponent implements OnInit {
     const firstSentence = content.split(/(?<=[.?!])\s/, 1)[0];
     return firstSentence;
   }
+
+    // Function to update the pagination pages based on the number of articles
+    updatePages() {
+      const pageCount = Math.ceil(this.articles.length / this.itemsPerPage);
+      this.pages = Array.from({ length: pageCount }, (_, i) => i + 1);
+    }
+
+    // Function to get a subset of articles for the current page
+    getPaginatedArticles() {
+      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
+      const endIndex = startIndex + this.itemsPerPage;
+      return this.articles.slice(startIndex, endIndex);
+    }
+
+    // Function to handle page change
+    changePage(page: number) {
+      this.currentPage = page;
+    }
 
 }
