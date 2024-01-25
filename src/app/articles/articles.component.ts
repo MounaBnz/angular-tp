@@ -19,9 +19,9 @@ export class ArticlesComponent implements OnInit {
     // ... other images
   ];
   currentPage: number = 1;
-  itemsPerPage: number = 10;
+  itemsPerPage: number = 2;
   pages: number[] = [];
-
+  paginatedArticles: any[] = [];
 
   getImageForArticle(index: number): string {
     return this.staticImages[index % this.staticImages.length];
@@ -31,6 +31,8 @@ export class ArticlesComponent implements OnInit {
   constructor(private router: Router) { }
   articles = articles;  // Assign the imported articles array
   ngOnInit(): void {
+    this.calculatePages();
+    this.loadPage(1);
   }
 
   viewArticleDetail(articleId: number): void {
@@ -42,22 +44,21 @@ export class ArticlesComponent implements OnInit {
     return firstSentence;
   }
 
-    // Function to update the pagination pages based on the number of articles
-    updatePages() {
-      const pageCount = Math.ceil(this.articles.length / this.itemsPerPage);
-      this.pages = Array.from({ length: pageCount }, (_, i) => i + 1);
-    }
+  calculatePages(): void {
+    const totalPages = Math.ceil(this.articles.length / this.itemsPerPage);
+    this.pages = Array.from({ length: totalPages }, (_, i) => i + 1);
+  }
 
-    // Function to get a subset of articles for the current page
-    getPaginatedArticles() {
-      const startIndex = (this.currentPage - 1) * this.itemsPerPage;
-      const endIndex = startIndex + this.itemsPerPage;
-      return this.articles.slice(startIndex, endIndex);
-    }
+  loadPage(pageNumber: number): void {
+    const startIndex = (pageNumber - 1) * this.itemsPerPage;
+    this.paginatedArticles = this.articles.slice(startIndex, startIndex + this.itemsPerPage);
+    this.currentPage = pageNumber;
+  }
 
-    // Function to handle page change
-    changePage(page: number) {
-      this.currentPage = page;
+  changePage(pageNumber: number): void {
+    if (pageNumber >= 1 && pageNumber <= this.pages.length) {
+      this.loadPage(pageNumber);
     }
+  }
 
 }
