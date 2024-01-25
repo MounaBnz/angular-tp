@@ -19,7 +19,7 @@ export class ArticlesComponent implements OnInit {
     // ... other images
   ];
   currentPage: number = 1;
-  itemsPerPage: number = 2;
+  itemsPerPage: number = 6;
   pages: number[] = [];
   paginatedArticles: any[] = [];
 
