@@ -9,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 export class QuizzTineComponent implements OnInit {
   currentQuestionIndex: number = 0;
   selectedAnswer: string = '';
-  score: number = 0; // Track the user's score
+  score: number = 0;
+  userAnswers: any[] = [];
   questions: any[] = [
     {
       question: 'What is the capital of Palestine?',
@@ -57,25 +58,47 @@ export class QuizzTineComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Initialize component logic here
   }
 
   submitAnswer(): void {
+    // Populate the userAnswers array
+    const currentQuestion = this.currentQuestion;
+    const userAnswer = {
+      question: currentQuestion.question,
+      selectedAnswer: this.selectedAnswer,
+      correctAnswer: currentQuestion.correctAnswer
+    };
+    this.userAnswers.push(userAnswer);  // Add the current question and answers to the array
+
     // Handle answer submission logic here
-    if (this.selectedAnswer === this.currentQuestion.correctAnswer) {
+    if (this.selectedAnswer === currentQuestion.correctAnswer) {
       this.score++; // Increment the score if the answer is correct
     }
 
-    // For demonstration purposes, let's move to the next question after a brief delay
     setTimeout(() => {
-      this.selectedAnswer = '';
+      this.selectedAnswer = '';  // Reset the selected answer for the next question
       this.currentQuestionIndex++;
 
-      // Check if there are more questions
       if (this.currentQuestionIndex === this.questions.length) {
-        // Quiz completed, display the score or navigate to another component/page
         console.log('Quiz completed. Score:', this.score);
+        this.displayCorrectAnswers();  // Call displayCorrectAnswers method after quiz is completed
       }
     }, 1000);
   }
+
+  // Existing displayCorrectAnswers method remains the same
+
+
+  // New method to display the correct answers
+  displayCorrectAnswers(): void {
+    console.log('Correct Answers:');
+    this.userAnswers.forEach(answer => {
+      console.log(`Question: ${answer.question}`);
+      console.log(`Your Answer: ${answer.selectedAnswer}`);
+      console.log(`Correct Answer: ${answer.correctAnswer}`);
+      console.log('---');
+    });
+  }
+
+
 }
