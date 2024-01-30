@@ -177,3 +177,57 @@ body {
   color: #283618;
   margin-top: 10px;
 }
+
+
+.alert-card {
+  border: 2px solid #721c24; /* Utilisez une couleur qui attire l'attention, par exemple, une couleur liée à votre palette */
+  background-color: #ffffff; /* Fond légèrement teinté pour l'avertissement */
+  justify-content: center; /* Center content horizontally */
+  flex-direction: column; /* Stack content vertically */
+  text-align: center; /* Centrer également horizontalement le contenu dans le cas où il y a du texte qui n'est pas centré */
+
+}
+
+.alert-message {
+  font-size: 16px;
+  font-weight: bold;
+  color: #721c24; /* Couleur de texte associée à l'avertissement */
+  flex-grow: 1; /* Permet au message de s'étendre et occuper l'espace restant */
+
+}
+
+.alert-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #721c24;
+  text-align: center; /* Centrer le texte horizontalement */
+}
+
+.alert-icon img {
+  width: 75px; /* Adjust the width as needed */
+  height: auto;
+  margin: 0 auto; /* Center the icon horizontally */
+  display: block;
+}
+
+
+
+.btn-login{
+  background-color: #606C38; /* Khaki background */
+  color: var(--onyx); /* Onyx text for contrast */
+  border: 2px solid #692525; /* Burnt-red border for prominence */
+  padding: 10px 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 4px #283618;
+  border-radius: 4px; /* Slightly rounded corners */
+  margin-top: 15px; /* Ensure spacing from text */
+}
+
+.btn-login:hover, .btn-login:focus {
+  background-color: #606C38; /* Sage background on hover/focus */
+  transform: translateY(-3px); /* Slight lift effect */
+  box-shadow: 0 4px 8px var(--khaki);
+}

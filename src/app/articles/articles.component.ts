@@ -19,9 +19,11 @@ export class ArticlesComponent implements OnInit {
     // ... other images
   ];
   currentPage: number = 1;
-  itemsPerPage: number = 6;
+  itemsPerPage: number = 2;
   pages: number[] = [];
   paginatedArticles: any[] = [];
+  showCard = true;
+
 
   getImageForArticle(index: number): string {
     return this.staticImages[index % this.staticImages.length];
@@ -60,5 +62,12 @@ export class ArticlesComponent implements OnInit {
       this.loadPage(pageNumber);
     }
   }
+
+
+
+  redirectToLogin(){
+    this.router.navigate(['/Login']);
+
+}
 
 }
