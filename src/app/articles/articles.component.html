@@ -21,6 +21,20 @@
 </div>
 
 
+
+<!-- Keyword Filter -->
+
+<div class="row mb-3">
+  <div class="col-md-6 mx-auto">
+    <div class="d-flex align-items-center">
+      <input type="text" class="form-control me-3" placeholder="Filter by keyword" [(ngModel)]="keywordFilter" (input)="onFilterChange()" />
+      <button class="btn btn-secondary" (click)="toggleSortOrder()">Filter by date</button>
+    </div>
+  </div>
+</div>
+
+
+
   <div class="row">
     <!-- Articles -->
     <div *ngFor="let article of paginatedArticles; let i = index" class="col-lg-4 col-md-6 col-sm-12 mb-4">

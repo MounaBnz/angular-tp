@@ -23,7 +23,9 @@ export class ArticlesComponent implements OnInit {
   pages: number[] = [];
   paginatedArticles: any[] = [];
   showCard = true;
-
+  keywordFilter: string = '';
+  dateFilter: string = '';
+  ascendingOrder: boolean = true;
 
   getImageForArticle(index: number): string {
     return this.staticImages[index % this.staticImages.length];
@@ -70,4 +72,40 @@ export class ArticlesComponent implements OnInit {
 
 }
 
+
+
+//LL METHODE DE KEYWORD FILTER
+applyFilters(): void {
+  // Filtrer par mot-clé dans le titre
+  if (this.keywordFilter.trim() !== '') {
+    this.paginatedArticles = this.articles.filter(article =>
+      article.title.toLowerCase().includes(this.keywordFilter.toLowerCase())
+    );
+  } else {
+    this.paginatedArticles = this.articles.slice(0, this.itemsPerPage);
+  }
+
+  // Trier les articles
+  this.paginatedArticles = this.paginatedArticles.sort((a, b) => {
+    const dateA = new Date(a.date).getTime();
+    const dateB = new Date(b.date).getTime();
+    return this.ascendingOrder ? dateA - dateB : dateB - dateA;
+  });
 }
+
+toggleSortOrder(): void {
+  // Inverser l'ordre de tri
+  this.ascendingOrder = !this.ascendingOrder;
+  // Appliquer les filtres avec le nouvel ordre de tri
+  this.applyFilters();
+}
+// Méthode appelée lors du changement de filtre
+onFilterChange(): void {
+  // Réinitialiser les filtres
+  this.paginatedArticles = this.articles.slice(0, this.itemsPerPage);
+  this.applyFilters();
+}
+
+}
+
+
